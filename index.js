@@ -19,4 +19,4 @@ app.use(function *(){
   }
 });
 
-app.listen(3000);
+app.listen(process.env.port || 3000);
