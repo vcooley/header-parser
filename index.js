@@ -7,15 +7,15 @@ var app = koa();
 
 app.use(function *(){
   var lang = this.get('accept-language').split(',')[0];
+  var ip = this.get('X-Forwarded-For');
   var userAgent = uaParser.parse(this.get('user-agent'));
   var os = userAgent.os.toString();
   var browser = userAgent.ua.toString();
   this.body = {
     language: lang, 
-    ipaddress: this.req.connection.remoteAddress,
+    ipaddress: ip,
     browser: browser,
-    os: os,
-    forwardedFor: this.get('X-Forwarded-For')
+    os: os
   }
 });
 
