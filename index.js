@@ -7,7 +7,7 @@ var app = koa();
 
 app.use(function *(){
   var lang = this.get('accept-language').split(',')[0];
-  var ip = this.ip;
+  var ip = this.ips;
   var userAgent = uaParser.parse(this.get('user-agent'));
   var os = userAgent.os.toString();
   var browser = userAgent.ua.toString();
@@ -15,7 +15,7 @@ app.use(function *(){
     language: lang, 
     ipaddress: ip,
     browser: browser,
-    os: os
+    os: os,
   }
 });
 
