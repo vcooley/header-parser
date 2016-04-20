@@ -15,6 +15,7 @@ app.use(function *(){
     ipaddress: this.req.connection.remoteAddress,
     browser: browser,
     os: os,
+    forwardedFor: this.get('X-Forwarded-For');
   }
 });
 
